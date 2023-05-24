@@ -1,7 +1,5 @@
 import { API_URL } from "../Utils/APIUtils";
 
 export const getGameData = async () => {
-  const data = await fetch(API_URL).then((response) => response.json());
-
-  return data;
+  return await fetch(API_URL).then((response) => response.json());
 };
