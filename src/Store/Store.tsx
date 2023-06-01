@@ -1,11 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 //reducers
-import gameMode from "../Slices/GameModeSlice";
-import gameGenerator from "../Slices/GameGeneratorSlice";
+import gameModeSlice from "../Slices/GameModeSlice";
+import GameGeneratorSlice from "../Slices/GameGeneratorSlice";
 
 const reducer = combineReducers({
-  gameMode,
-  gameGenerator,
+  gameMode: gameModeSlice,
+  gameGenerator: GameGeneratorSlice,
 });
 
 export const store = configureStore({ reducer });

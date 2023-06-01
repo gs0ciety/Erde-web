@@ -3,21 +3,22 @@ import Option from "../../Interfaces/OptionInterface";
 import { checkAnswer } from "../../Utils/GameUtils";
 import Game from "../../Interfaces/GameInterface";
 
-export const NameGame: React.FC<{ gameData: Game; dispatch: Dispatch }> = ({
+export const FlagGame: React.FC<{ gameData: Game; dispatch: Dispatch }> = ({
   gameData,
   dispatch,
 }) => {
   return (
     <div>
-      <p>{gameData.question.name}</p>
+      <img src={gameData.question.flag} />
       {gameData.options.map((option: Option) => (
-        <img
-          src={option.flag}
+        <p
           key={option.id}
           onClick={() =>
             checkAnswer(gameData.question.name, option.name, dispatch)
           }
-        />
+        >
+          {option.name}
+        </p>
       ))}
     </div>
   );

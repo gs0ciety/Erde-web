@@ -1,7 +1,7 @@
-export const GameMode = [
+export const GameModeData = [
   {
     id: 0,
-    name: "shape",
+    name: "capital",
     imgUrl: "",
   },
   {
@@ -11,6 +11,11 @@ export const GameMode = [
   },
   {
     id: 2,
+    name: "shape",
+    imgUrl: "",
+  },
+  {
+    id: 3,
     name: "name",
     imgUrl: "",
   },

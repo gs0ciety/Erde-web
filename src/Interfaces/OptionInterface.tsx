@@ -1,4 +1,5 @@
 export default interface Option {
+  id: number;
   name: string;
   capital: string;
   continent: string;

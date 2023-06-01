@@ -1,20 +1,20 @@
 import { useDispatch } from "react-redux";
+import { newGame } from "../../Slices/GameGeneratorSlice";
 import Content from "../Content/Content";
 import NavBar from "../Navbar/Navbar";
 import { useEffect } from "react";
-import { newGame } from "../../Slices/GameGeneratorSlice";
-import { getGameData } from "../../API/GameAPI";
+import { fetchGameData } from "../../API/GameAPI";
 
 function Erde() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const gameData = async () =>
-      await getGameData().then((gameData) => {
+    const updateGameData = async () =>
+      await fetchGameData().then((gameData) => {
         dispatch(newGame(gameData));
       });
 
-    gameData();
+    updateGameData();
   }, [dispatch]);
 
   return (

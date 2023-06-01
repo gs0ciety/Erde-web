@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { GameMode } from "../Utils/GameMode";
+import { GameModeData } from "../Utils/GameMode";
+
+const initialState = { gameMode: GameModeData[0] };
 
 const gameModeSlice = createSlice({
   name: "gameMode",
-  initialState: { gameMode: GameMode[0] },
+  initialState,
   reducers: {
     changeGameMode: (state, action) => {
       state.gameMode = action.payload;
