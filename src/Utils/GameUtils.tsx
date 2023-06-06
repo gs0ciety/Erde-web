@@ -1,16 +1,37 @@
 import { Dispatch } from "@reduxjs/toolkit";
 import { fetchGameData } from "../API/GameAPI";
-import { newGame } from "../Slices/GameGeneratorSlice";
+import { newGame, wrongOptionSelected } from "../Slices/GameGeneratorSlice";
+import { changeVictoryStatus } from "../Slices/VictoryStatusSlice";
+import { result } from "./ResultData";
+import Game from "../Interfaces/GameInterface";
 
 async function correctAnswer(dispatch: Dispatch, questionName: string) {
-  let newGameData;
+  let newGameData: Game;
 
   //generate a newgame avoiding generating with the same question as the one last used
   do {
     newGameData = await fetchGameData();
   } while (newGameData.question.name === questionName);
 
-  dispatch(newGame(newGameData));
+  dispatch(changeVictoryStatus(result.correct.show));
+
+  setTimeout(() => {
+    dispatch(changeVictoryStatus(result.correct.hide));
+  }, 2000);
+
+  setTimeout(() => {
+    dispatch(newGame(newGameData));
+  }, 2000);
+}
+
+function wrongAnswer(dispatch: Dispatch, optionName: string) {
+  dispatch(changeVictoryStatus(result.incorrect.show));
+
+  setTimeout(() => {
+    dispatch(changeVictoryStatus(result.incorrect.hide));
+  }, 2000);
+
+  dispatch(wrongOptionSelected(optionName));
 }
 
 export function checkAnswer(
@@ -25,5 +46,6 @@ export function checkAnswer(
   } else {
     //wrong anwer
     console.log("WRONG");
+    wrongAnswer(dispatch, answerName);
   }
 }

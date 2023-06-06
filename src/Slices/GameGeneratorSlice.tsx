@@ -33,8 +33,18 @@ const gameGeneratorSlice = createSlice({
     newGame: (state, action) => {
       state.gameGenerator = action.payload;
     },
+    wrongOptionSelected: (state, action) => {
+      const wrongOptionName = action.payload;
+      console.log(wrongOptionName);
+
+      for (const country of state.gameGenerator.options) {
+        if (country.name === wrongOptionName) {
+          country.isActiveOption = false;
+        }
+      }
+    },
   },
 });
 
-export const { newGame } = gameGeneratorSlice.actions;
+export const { newGame, wrongOptionSelected } = gameGeneratorSlice.actions;
 export default gameGeneratorSlice.reducer;

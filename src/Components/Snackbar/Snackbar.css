@@ -1,0 +1,11 @@
+.wrapper {
+  background-color: blue;
+}
+
+#show {
+  visibility: visible;
+}
+
+#hide {
+  visibility: hidden;
+}
