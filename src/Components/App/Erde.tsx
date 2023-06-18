@@ -5,6 +5,9 @@ import NavBar from "../Navbar/Navbar";
 import { useEffect } from "react";
 import { fetchGameData } from "../../API/GameAPI";
 
+//styles
+import "./Erde.css";
+
 function Erde() {
   const dispatch = useDispatch();
 

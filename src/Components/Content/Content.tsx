@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux";
-import "./Content.css";
 import { State } from "../../Store/Store";
 import GameMode from "../../Interfaces/GameModeInterface";
 import { CapitalGame } from "../Games/CapitalGame";
 import { FlagGame } from "../Games/FlagGame";
 import { ShapeGame } from "../Games/ShapeGame";
 import { NameGame } from "../Games/NameGame";
+
+//styles
+import "./Content.css";
 
 export default function Content() {
   const activeGameMode: GameMode = useSelector(
@@ -26,9 +28,5 @@ export default function Content() {
     }
   }
 
-  return (
-    <div className="content">
-      <h1>{gameSwitch(activeGameMode)}</h1>
-    </div>
-  );
+  return <div className="content">{gameSwitch(activeGameMode)}</div>;
 }

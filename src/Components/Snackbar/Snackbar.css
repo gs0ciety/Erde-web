@@ -1,11 +1,23 @@
-.wrapper {
-  background-color: blue;
+.snackbar-wrapper {
+  margin: auto;
+  width: 50%;
+  border-radius: 1.5rem;
+  margin-top: 1rem;
 }
 
-#show {
-  visibility: visible;
+.snackbar-correct {
+  padding: 0.5rem;
+  background-color: green;
+  color: white;
 }
 
-#hide {
-  visibility: hidden;
+.snackbar-incorrect {
+  padding: 0.5rem;
+  background-color: rgb(238, 210, 2);
+  color: black;
+}
+
+.snackbar-message {
+  font-size: 1.5rem;
+  font-weight: bold;
 }

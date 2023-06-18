@@ -1,12 +1,17 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GameModeData } from "../../Utils/GameMode";
-import "./Navbar.css";
 import { changeGameMode } from "../../Slices/GameModeSlice";
 import { newGame } from "../../Slices/GameGeneratorSlice";
 import GameMode from "../../Interfaces/GameModeInterface";
 import { fetchGameData } from "../../API/GameAPI";
 
+//styles
+import "./Navbar.css";
+import { State } from "../../Store/Store";
+
 export default function NavBar() {
+  const activeGameMode = useSelector((state: State) => state.gameMode.gameMode);
+
   const dispatch = useDispatch();
 
   const gameData = async () =>
@@ -23,14 +28,18 @@ export default function NavBar() {
     <div className="navbar">
       {GameModeData.map((gameMode) => {
         return (
-          <button
+          <img
             key={gameMode.id}
+            src={gameMode.imgUrl}
+            className={
+              gameMode.name === activeGameMode.name
+                ? "btn-navbar isActive"
+                : "btn-navbar"
+            }
             onClick={() => {
               fetchNewGameAndChangeGameMode(gameMode);
             }}
-          >
-            {gameMode.name}
-          </button>
+          />
         );
       })}
     </div>

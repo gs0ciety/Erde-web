@@ -4,6 +4,10 @@ import Game from "../../Interfaces/GameInterface";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../Store/Store";
 
+//style
+import "./Game.css";
+import "./ShapeGame.css";
+
 export const ShapeGame: React.FC = () => {
   const gameData: Game = useSelector(
     (state: State) => state.gameGenerator.gameGenerator
@@ -12,18 +16,24 @@ export const ShapeGame: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <img src={gameData.question.shape} />
-      {gameData.options.map((option: Option) => (
-        <p
-          key={option.id}
-          onClick={() =>
-            checkAnswer(gameData.question.name, option.name, dispatch)
-          }
-        >
-          {option.name}
-        </p>
-      ))}
+    <div className="shape-game">
+      <div className="question-wrapper">
+        <img className="question-shape" src={gameData.question.shape} />
+      </div>
+      <div className="options-wrapper">
+        {gameData.options.map((option: Option) => (
+          <div className="option">
+            <p
+              key={option.id}
+              onClick={() =>
+                checkAnswer(gameData.question.name, option.name, dispatch)
+              }
+            >
+              {option.name}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -9,10 +9,16 @@ export const Snackbar: React.FC = () => {
   );
 
   return (
-    <div id={victoryStatus.showSnackbar ? "show" : "hide"} className="wrapper">
-      <span>
-        {victoryStatus.isCorrect ? snackbarMsg.correct : snackbarMsg.error}
-      </span>
+    <div className="snackbar-wrapper">
+      <div
+        className={
+          victoryStatus.isCorrect ? "snackbar-correct" : "snackbar-incorrect"
+        }
+      >
+        <span className="snackbar-message">
+          {victoryStatus.isCorrect ? snackbarMsg.correct : snackbarMsg.error}
+        </span>
+      </div>
     </div>
   );
 };
