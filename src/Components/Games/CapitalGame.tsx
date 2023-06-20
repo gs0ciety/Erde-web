@@ -6,6 +6,7 @@ import { State } from "../../Store/Store";
 import { Snackbar } from "../Snackbar/Snackbar";
 import Lottie from "lottie-react";
 import animationData from "../Lottie/animation_success.json";
+import useSound from "use-sound";
 
 //styles
 import "./Game.css";
@@ -18,6 +19,8 @@ export const CapitalGame: React.FC = () => {
   const victoryStatus = useSelector(
     (state: State) => state.victoryStatus.victoryStatus
   );
+
+  const [playVictorySound] = useSound("/sounds/drums_success.mp3");
 
   const dispatch = useDispatch();
 
@@ -33,7 +36,12 @@ export const CapitalGame: React.FC = () => {
               className={option.isActiveOption ? "show" : "hide"}
               key={option.id}
               onClick={() =>
-                checkAnswer(gameData.question.name, option.name, dispatch)
+                checkAnswer(
+                  gameData.question.name,
+                  option.name,
+                  dispatch,
+                  playVictorySound
+                )
               }
             >
               {option.capital.toUpperCase()}

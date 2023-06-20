@@ -5,7 +5,11 @@ import { changeVictoryStatus } from "../Slices/VictoryStatusSlice";
 import { result } from "./ResultData";
 import Game from "../Interfaces/GameInterface";
 
-async function correctAnswer(dispatch: Dispatch, questionName: string) {
+async function correctAnswer(
+  dispatch: Dispatch,
+  questionName: string,
+  playVictorySound
+) {
   let newGameData: Game;
 
   //generate a newgame avoiding generating with the same question as the one last used
@@ -14,6 +18,7 @@ async function correctAnswer(dispatch: Dispatch, questionName: string) {
   } while (newGameData.question.name === questionName);
 
   dispatch(changeVictoryStatus(result.correct.show));
+  playVictorySound();
 
   setTimeout(() => {
     dispatch(changeVictoryStatus(result.correct.hide));
@@ -37,12 +42,13 @@ function wrongAnswer(dispatch: Dispatch, optionName: string) {
 export function checkAnswer(
   questionName: string,
   answerName: string,
-  dispatch: Dispatch
+  dispatch: Dispatch,
+  playVictorySound: void
 ) {
   if (questionName === answerName) {
     //right answer
     console.log("CORRECT");
-    correctAnswer(dispatch, questionName);
+    correctAnswer(dispatch, questionName, playVictorySound);
   } else {
     //wrong anwer
     console.log("WRONG");
