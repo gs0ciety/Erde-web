@@ -34,9 +34,11 @@ p {
 .lottie {
   z-index: 10;
   position: absolute;
-  width: 100%;
+  text-align: center;
   left: 0;
-  top: 6.25rem;
+  right: 0;
+  top: 5%;
+  height: 35rem;
 }
 
 @media (min-width: 30rem) {

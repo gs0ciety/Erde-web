@@ -4,12 +4,11 @@ import Game from "../../Interfaces/GameInterface";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../Store/Store";
 import { Snackbar } from "../Snackbar/Snackbar";
-
+import Lottie from "lottie-react";
 import animationData from "../Lottie/animation_success.json";
 
 //styles
 import "./Game.css";
-import { useLottie } from "lottie-react";
 
 export const CapitalGame: React.FC = () => {
   const gameData: Game = useSelector(
@@ -19,17 +18,6 @@ export const CapitalGame: React.FC = () => {
   const victoryStatus = useSelector(
     (state: State) => state.victoryStatus.victoryStatus
   );
-
-  const options = {
-    animationData: animationData,
-    loop: false,
-    autoplay: true,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
-  const { View, play } = useLottie(options);
 
   const dispatch = useDispatch();
 
@@ -53,8 +41,14 @@ export const CapitalGame: React.FC = () => {
           </div>
         ))}
       </div>
-      {victoryStatus.showLottie && <div className="lottie"></div>}
-      <div className="lottie">{View}</div>
+      {victoryStatus.showLottie && (
+        <Lottie
+          className="lottie"
+          autoplay={true}
+          animationData={animationData}
+          loop={false}
+        />
+      )}
       {victoryStatus.showSnackbar && <Snackbar />}
     </div>
   );
