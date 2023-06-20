@@ -33,8 +33,8 @@ export default function NavBar() {
             src={gameMode.imgUrl}
             className={
               gameMode.name === activeGameMode.name
-                ? "btn-navbar isActive"
-                : "btn-navbar"
+                ? `btn-navbar isActive ${gameMode.name}`
+                : `btn-navbar ${gameMode.name}`
             }
             onClick={() => {
               fetchNewGameAndChangeGameMode(gameMode);

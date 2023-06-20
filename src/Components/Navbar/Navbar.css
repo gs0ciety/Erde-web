@@ -6,6 +6,10 @@
   padding: 0.5rem;
 }
 
+.shape {
+  margin-left: 1.3rem;
+}
+
 /*mobile breakpoint 480px*/
 @media (min-width: 30rem) {
   .navbar {
@@ -21,7 +25,7 @@
 .btn-navbar {
   height: 80%;
   width: 25%;
-  opacity: 0.75;
+  opacity: 0.5;
 }
 
 .isActive {

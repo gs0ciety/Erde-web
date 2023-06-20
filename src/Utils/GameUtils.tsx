@@ -4,6 +4,7 @@ import { newGame, wrongOptionSelected } from "../Slices/GameGeneratorSlice";
 import { changeVictoryStatus } from "../Slices/VictoryStatusSlice";
 import { result } from "./ResultData";
 import Game from "../Interfaces/GameInterface";
+import { vibrate } from "./Utils";
 
 async function correctAnswer(
   dispatch: Dispatch,
@@ -12,13 +13,15 @@ async function correctAnswer(
 ) {
   let newGameData: Game;
 
+  vibrate([100, 75, 100]);
+
+  dispatch(changeVictoryStatus(result.correct.show));
+  playVictorySound();
+
   //generate a newgame avoiding generating with the same question as the one last used
   do {
     newGameData = await fetchGameData();
   } while (newGameData.question.name === questionName);
-
-  dispatch(changeVictoryStatus(result.correct.show));
-  playVictorySound();
 
   setTimeout(() => {
     dispatch(changeVictoryStatus(result.correct.hide));
@@ -30,11 +33,12 @@ async function correctAnswer(
 }
 
 function wrongAnswer(dispatch: Dispatch, optionName: string) {
+  vibrate(100);
   dispatch(changeVictoryStatus(result.incorrect.show));
 
   setTimeout(() => {
     dispatch(changeVictoryStatus(result.incorrect.hide));
-  }, 2000);
+  }, 1000);
 
   dispatch(wrongOptionSelected(optionName));
 }
