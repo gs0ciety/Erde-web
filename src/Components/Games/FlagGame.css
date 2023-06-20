@@ -1,3 +1,9 @@
 .question-flag {
-  width: 16rem;
+  width: 12rem;
+}
+
+@media (min-width: 30rem) {
+  .question-flag {
+    width: 16rem;
+  }
 }
