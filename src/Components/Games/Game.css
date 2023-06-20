@@ -7,11 +7,11 @@
 }
 
 .question {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .options-wrapper {
-  height: 20rem;
+  height: 16rem;
   background-color: #ffffdd;
   display: flex;
   flex-wrap: wrap;
@@ -21,14 +21,12 @@
   border-color: #e2a73d;
   border-style: solid;
   border-radius: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .option {
   width: 50%;
-}
-
-p {
-  font-size: 1.5rem;
 }
 
 .lottie {
@@ -48,6 +46,9 @@ p {
   .shape-game {
     width: 30rem;
     margin: auto;
+  }
+  .options-wrapper {
+    margin: 0;
   }
 }
 
