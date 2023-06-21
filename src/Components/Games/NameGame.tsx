@@ -6,6 +6,8 @@ import { State } from "../../Store/Store";
 import { Snackbar } from "../Snackbar/Snackbar";
 import Lottie from "lottie-react";
 import animationData from "../Lottie/animation_success.json";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
 import useSound from "use-sound";
 
 //styles
@@ -21,7 +23,7 @@ export const NameGame: React.FC = () => {
     (state: State) => state.victoryStatus.victoryStatus
   );
 
-  const [playVictorySound] = useSound("/sounds/drums_success.mp3");
+  const [playVictorySound] = useSound("assets/sounds/drums_success.mp3");
 
   const dispatch = useDispatch();
 

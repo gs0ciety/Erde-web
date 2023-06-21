@@ -9,6 +9,8 @@ import { vibrate } from "./Utils";
 async function correctAnswer(
   dispatch: Dispatch,
   questionName: string,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   playVictorySound
 ) {
   let newGameData: Game;

@@ -3,6 +3,8 @@ import { checkAnswer } from "../../Utils/GameUtils";
 import Game from "../../Interfaces/GameInterface";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../Store/Store";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
 import useSound from "use-sound";
 import animationData from "../Lottie/animation_success.json";
 import Lottie from "lottie-react";
@@ -21,7 +23,7 @@ export const FlagGame: React.FC = () => {
     (state: State) => state.victoryStatus.victoryStatus
   );
 
-  const [playVictorySound] = useSound("/sounds/drums_success.mp3");
+  const [playVictorySound] = useSound("assets/sounds/drums_success.mp3");
 
   const dispatch = useDispatch();
 
