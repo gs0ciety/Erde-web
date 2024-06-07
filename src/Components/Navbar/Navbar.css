@@ -1,0 +1,33 @@
+.navbar {
+  height: 6.25rem;
+  background-color: #006a71;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.shape {
+  margin-left: 1.3rem;
+}
+
+/*mobile breakpoint 480px*/
+@media (min-width: 30rem) {
+  .navbar {
+    height: 6rem;
+    width: 30rem;
+    margin: auto;
+    border-radius: 1.9rem;
+    padding: 0.1rem;
+    margin-top: 1rem;
+  }
+}
+
+.btn-navbar {
+  height: 80%;
+  width: 25%;
+  opacity: 0.5;
+}
+
+.isActive {
+  opacity: 1;
+}
