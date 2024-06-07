@@ -1,1 +1,1 @@
-export const API_URL = "https://www.gsociety.com.ar/backend/api/game";
+export const API_URL = "https://erde.gsociety.com.ar/game";
